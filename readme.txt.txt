@@ -1,5 +1,5 @@
 
-This repository is the official implementation of [Bayesian Uncertainty Matching for Unsupervised Domain Adaptation]
+This repository is the implementation of [Bayesian Uncertainty Matching for Unsupervised Domain Adaptation]
 
 ##To install requirements:
 pip install -r requirements.txt
