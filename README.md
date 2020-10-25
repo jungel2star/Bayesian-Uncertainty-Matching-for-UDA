@@ -3,6 +3,9 @@
 This repository is the implementation of paper [Bayesian Uncertainty Matching for Unsupervised Domain Adaptation-IJCAI-2019]
 
 
+1. Download datasets and put in: ./data/
+2. Training and test:  ./scripts/mnist-usps.sh
+
 
 @inproceedings{wen2019bayesian,
   title={Bayesian uncertainty matching for unsupervised domain adaptation},
