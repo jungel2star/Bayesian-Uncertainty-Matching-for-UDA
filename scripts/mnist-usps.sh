@@ -28,4 +28,4 @@ python3 tools/uncertainDA_train_open.py usps1800:train mnist2000:train lenet unc
        --netvladflag 1
 
 python3 tools/eval_uncertainDA.py usps1800 test lenet2 snapshot/uncertainDA_mnist2usps --netvladflag 1
-python3 tools/eval_uncertainDA.py mnist2000 train lenet2 snapshot/uncertainDA_usps2mnist --netvladflag 1
+python3 tools/eval_uncertainDA.py mnist2000 test lenet2 snapshot/uncertainDA_usps2mnist --netvladflag 1
