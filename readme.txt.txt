@@ -7,7 +7,7 @@ pip install -r requirements.txt
 
 ## Training:
 1. Download datasets and put in: ./data/
-2. Training and test:  ./scripts/mnist2000-usps.sh
+2. Training and test:  ./scripts/mnist-usps.sh
 
 
 
