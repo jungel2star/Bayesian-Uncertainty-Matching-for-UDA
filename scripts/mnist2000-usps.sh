@@ -2,57 +2,30 @@
 
 # abort entire script on error
 set -e
-
 export PYTHONPATH="$PWD:$PYTHONPATH"
-
-#########usps#####
-python3.5 tools/uncertainDA_train.py mnist:train usps:train lenet2 uncertainDA_mnist2usps2 \
-       --iterations 7000 \
-       --batch_size 64 \
-       --display 200 \
+#########mnist#####
+python3  tools/uncertainDA_train_open.py mnist2000:train usps1800:train lenet2 uncertainDA_mnist2usps \
+       --iterations 10000 \
+       --batch_size 128 \
+       --display 50 \
        --lr 0.001 \
-       --snapshot 3500 \
+       --snapshot 10000 \
        --weights snapshot/uncertainDA_mnist2usps\
        --adversary_relu \
        --solver Adam  \
        --netvladflag 1
 
-python3.5 tools/uncertainDA_train.py mnist2000:train usps:train lenet uncertainDA_mnist2usps22 \
-       --iterations 4500 \
-       --batch_size 128 \
+#########usps#####
+python3 tools/uncertainDA_train_open.py usps1800:train mnist2000:train lenet uncertainDA_usps2mnist \
+       --iterations 10000 \
+       --batch_size 256 \
        --display 50 \
        --lr 0.001 \
-       --snapshot 4500 \
-       --weights snapshot/uncertainDA_mnist2usps\
+       --snapshot 10000 \
+       --weights snapshot/uncertainDA_usps2mnist\
        --adversary_relu \
        --solver adam  \
        --netvladflag 1
 
-
-python3.5 tools/uncertainDA_train.py mnist2000:train usps:train lenet uncertainDA_mnist2usps222 \
-       --iterations 4500 \
-       --batch_size 128 \
-       --display 50 \
-       --lr 0.001 \
-       --snapshot 4500 \
-       --weights snapshot/uncertainDA_mnist2usps\
-       --adversary_relu \
-       --solver adam  \
-       --netvladflag 1
-
-
-python3.5 tools/uncertainDA_train.py mnist2000:train usps:train lenet uncertainDA_mnist2usps2222 \
-       --iterations 4500 \
-       --batch_size 128 \
-       --display 50 \
-       --lr 0.001 \
-       --snapshot 4500 \
-       --weights snapshot/uncertainDA_mnist2usps\
-       --adversary_relu \
-       --solver adam  \
-       --netvladflag 1
-
-python3.5 tools/eval_uncertainDA.py usps test lenet2 snapshot/uncertainDA_mnist2usps2 --netvladflag 1
-python3.5 tools/eval_uncertainDA.py usps train lenet2 snapshot/uncertainDA_mnist2usps22 --netvladflag 1
-python3.5 tools/eval_uncertainDA.py usps train lenet2 snapshot/uncertainDA_mnist2usps222 --netvladflag 1
-python3.5 tools/eval_uncertainDA.py usps train lenet2 snapshot/uncertainDA_mnist2usps2222 --netvladflag 1
+python3 tools/eval_uncertainDA.py usps1800 test lenet2 snapshot/uncertainDA_mnist2usps --netvladflag 1
+python3 tools/eval_uncertainDA.py mnist2000 train lenet2 snapshot/uncertainDA_usps2mnist --netvladflag 1
