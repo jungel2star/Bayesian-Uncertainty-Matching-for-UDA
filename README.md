@@ -1,4 +1,4 @@
-# Bayesian-Uncertainty-Matching-for-UDA
+# Bayesian Uncertainty Matching for Unsupervised Domain Adaptation
 
 This repository is the implementation of paper [Bayesian Uncertainty Matching for Unsupervised Domain Adaptation-IJCAI-2019]
 
